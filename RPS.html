@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Number guessing game</title>
+    <title>nabm's RPS :)</title>
 
     <style>
       html {
@@ -21,13 +21,26 @@
       }
     </style>
 
-    <script src="logic.js"></script> 
+    <link rel="stylesheet" href="style.css">
+    <script src="logic.js" defer></script> 
   </head>
 
   <body>
-      <h1>Rock Paper Scissors</h1>
-
-      <p>Open the console to play the game!</p>
-</body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="container">
+      <div class="buttons-container">
+        <button class="choice-button" id="ROCK">ROCK</button>
+        <button class="choice-button" id="PAPER">PAPER</button>
+        <button class="choice-button" id="SCISSORS">SCISSORS</button>
+      </div>
+      <div class="log-container">
+        <p class="score-p" id="player-name">YOU:</p>
+        <p class="score-p" id="player-score">0</p>
+        <p class="score-p" id="pc-name">PC:</p>
+        <p class="score-p" id="pc-score">0</p>
+        <p class="log">The game has just started!</p>
+      </div>
+    </div>  
+ </body>
 
 </html>
