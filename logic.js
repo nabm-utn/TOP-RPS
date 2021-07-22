@@ -11,6 +11,7 @@ function randomChoice(choices) {
 
 function playRound(playerSelection, computerSelection) {
     let answer = "";
+    playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
         answer = "It's a Tie! :s";
     } else if (playerSelection === "rock") {
@@ -74,4 +75,22 @@ function bestOfFive() {
 
 }
 
-bestOfFive();
+let buttons = document.querySelectorAll('.choice-button');
+buttons.forEach(button => button.addEventListener("click", playRound2));
+
+function playRound2(e) {
+    const log = document.querySelector(".log");
+    const playerScore = document.querySelector("#player-score");
+    const pcScore = document.querySelector("#pc-score");
+    playerSelection = this.id;
+    computerSelection = computerPlay();
+    let answer = playRound(playerSelection, computerSelection);
+    
+    log.innerHTML += "<br>" + answer;
+    log.scrollTop = log.scrollHeight;
+    if (answer.includes("Win")) {
+        playerScore.textContent = parseInt(playerScore.textContent) + 1;
+    } else if (answer.includes("Loose")) {
+        pcScore.textContent = parseInt(pcScore.textContent) + 1;
+    }
+}
