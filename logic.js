@@ -84,13 +84,64 @@ function playRound2(e) {
     const pcScore = document.querySelector("#pc-score");
     playerSelection = this.id;
     computerSelection = computerPlay();
-    let answer = playRound(playerSelection, computerSelection);
-    
-    log.innerHTML += "<br>" + answer;
+    let message = roundMessage(playerSelection, computerSelection);
+    let result = roundResult(message);
+    log.appendChild(roundDiv(message, result));
     log.scrollTop = log.scrollHeight;
-    if (answer.includes("Win")) {
+    if (result === "WIN") {
         playerScore.textContent = parseInt(playerScore.textContent) + 1;
-    } else if (answer.includes("Loose")) {
+    } else if (result === "LOOSE") {
         pcScore.textContent = parseInt(pcScore.textContent) + 1;
     }
+    console.log("hey there!")
+}
+
+function roundDiv(message, result) {
+    const div = document.createElement("div");
+    div.textContent = message;
+    let color = "rgb(158, 233, 115)";
+    if (result === "LOOSE") {
+        color = "rgb(247, 104, 68)";
+    } else if (result === "TIE") {
+        color = "rgb(240, 253, 167)";
+    }
+    div.style.backgroundColor = color;
+    div.classList.add("log-div");
+    return div;
+}
+
+function roundMessage(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+    let message = `${playerSelection} VS ${computerSelection}`;
+    return message;
+}
+
+function roundResult(message) {
+    let result = NaN;
+    switch (message) {
+        case "rock VS rock":
+        case "paper VS paper":
+        case "scissors VS scissors":
+            result = "TIE";
+            break;
+
+        case "rock VS scissors":
+        case "paper VS rock": 
+        case "scissors VS paper":
+            result = "WIN";
+            break;
+
+        case "rock VS paper":
+        case "paper VS scissors":
+        case "scissors VS rock":
+            result = "LOOSE";
+            break;
+
+        default:
+            result = "something wrong happened!";
+            break;
+    }
+    return result;
+
 }
