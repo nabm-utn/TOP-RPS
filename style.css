@@ -27,11 +27,16 @@
     padding-left: 10px;
 }
 
+.score-p {
+    border: 2px white none;
+}
+
 #player-name {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+    border: 2px white none;
 }
 
 #player-score {
@@ -46,6 +51,7 @@
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 2;
+    border: 2px white none;
 }
 
 #pc-score {
@@ -53,6 +59,27 @@
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 2;
+    border: 2px white none;
+}
+
+.winner-left {
+    border: 2px rgb(212, 62, 100) dashed;
+    border-right-style: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-weight: bold;
+    color: gold;
+    text-align: center;
+}
+
+.winner-right {
+    border: 2px rgb(212, 62, 100) dashed;
+    border-left-style: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-weight: bold;
+    color: gold;
+    text-align: center;
 }
 
 .log {
@@ -60,9 +87,28 @@
     grid-column-end: 8;
     grid-row-start: 2;
     grid-row-end: 3;
-    min-width: 300px;
-    max-height: 100px;
+    min-width: 400px;
+    max-height: 150px;
     text-align: center;
     overflow: scroll;
     line-height: 200%;
+    border: 1px lightgray solid;
     }
+
+.log-div {
+    border: 1px lightgray solid;
+    height: 35px;
+}
+
+#log-div-1 {
+    height: 35px;
+    margin: 0;
+}
+
+.final-message {
+    font-size: larger;
+    font-weight: bolder;
+    background-color: goldenrod;
+    color: darkgray;
+
+}
